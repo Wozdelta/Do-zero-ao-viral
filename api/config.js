@@ -1,4 +1,4 @@
-import { publicConfig } from '../backend/checkout.js';
+import { publicConfig } from '../lib/settings.js';
 
 export default function handler(request, response) {
   if(request.method!=='GET') {

@@ -1,54 +1,69 @@
 # Do Zero ao Viral
 
-Página de vendas em React, Vite e Tailwind CSS, com execução local em Node.js/Express e configuração pronta para importar na Vercel.
+Projeto único em React + Vite + Tailwind, pronto para importar na Vercel pela raiz. Não há duas aplicações ou pastas frontend/backend para configurar.
 
-## Compra
+## Subir na Vercel
 
-Todos os botões de compra abrem diretamente o checkout oficial:
+1. Importe o repositório `Wozdelta/Do-zero-ao-viral`.
+2. Em **Root Directory**, mantenha a raiz: `./`.
+3. O arquivo `vercel.json` já define:
+   - Instalação: `npm ci`
+   - Build: `npm run build`
+   - Pasta de saída: `dist`
+4. Faça o deploy. Não precisa configurar servidor separado nem credenciais da Cakto.
 
-https://pay.cakto.com.br/37y6pfg_1307697
+## Rodar no computador
 
-O site não coleta dados de pagamento, não processa cartão e não usa chave de API da Cakto. O link está centralizado em `shared/offer.js`.
-
-## Desenvolvimento local
-
-Node.js 22.12 ou superior.
+Node.js 22.12 ou superior. Abra o terminal nesta mesma pasta:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Frontend: http://127.0.0.1:5173. Backend: http://127.0.0.1:3001.
-
-Para servir a versão compilada:
+Abra http://127.0.0.1:5173. Para conferir a versão compilada:
 
 ```sh
 npm run build
 npm start
 ```
 
-## Importar na Vercel
+Abra http://127.0.0.1:3001. Encerre com Ctrl+C.
 
-1. Importe este repositório no painel da Vercel.
-2. Mantenha **Root Directory** na raiz do repositório.
-3. O arquivo `vercel.json` configura `npm ci`, `npm run build` e a saída `frontend/dist`.
-4. A configuração pública do site usa a função `api/config.js`; a Vercel não precisa executar o servidor Express local.
-5. Não é necessário cadastrar credenciais da Cakto para redirecionar ao checkout.
+## Onde fica cada coisa
 
-Opcionais: `SELLER_NAME`, `SELLER_DOCUMENT`, `SUPPORT_EMAIL` e `REFERENCE_PRICE_CONFIRMED` podem ser definidos nas variáveis de ambiente do projeto.
+```text
+zero-ao-viral/
+  index.html
+  package.json
+  package-lock.json
+  vite.config.js
+  vercel.json
+  src/              página, componentes e estilos
+  public/           imagens e anúncio
+  api/config.js     configuração pública na Vercel
+  lib/settings.js   configuração compartilhada
+  tests/            verificações
+```
 
-## Anúncio
+Tudo é instalado, executado e publicado a partir desta pasta. As subpastas apenas organizam o conteúdo do mesmo projeto.
 
-Salve o vídeo real em `frontend/public/media/anuncio.mp4`. Na Vercel, defina `AD_VIDEO_ENABLED=true` e faça um novo deploy. Na execução local, o arquivo é detectado automaticamente após compilar e reiniciar o servidor.
+## Pagamento
 
-## Verificações
+Os botões levam diretamente ao checkout https://pay.cakto.com.br/37y6pfg_1307697. O site não coleta cartão, CPF ou dados de pagamento e não precisa de chave de API. Altere o link em `src/offer.js` se mudar a oferta.
+
+Confira na Cakto os métodos de pagamento, a entrega e as taxas. Na revisão do checkout, a plataforma acrescentou R$ 0,99 ao produto de R$ 99,99, mostrando total de R$ 100,98.
+
+## Colocar o anúncio
+
+Salve o vídeo real em `public/media/anuncio.mp4`. Localmente ele é detectado automaticamente. Na Vercel, defina `AD_VIDEO_ENABLED=true` e faça um novo deploy. Até receber o vídeo, a página mostra uma demonstração visual identificada.
+
+## Configurações opcionais
+
+Na Vercel, pode preencher `SELLER_NAME`, `SELLER_DOCUMENT`, `SUPPORT_EMAIL` e `REFERENCE_PRICE_CONFIRMED`. Nenhuma credencial privada é necessária. Dados locais privados, referências do produto, capturas e dependências são excluídos do Git.
 
 ```sh
 npm test
-npm run build
 ```
 
-O contador de visita usa armazenamento local e continua após recarregar a página. O preço anunciado permanece após zerar. Prints são exibidos como registros compartilhados pelo produtor, sem promessa de renda.
-
-Arquivos privados `.env`, referências do produto, capturas de revisão, dependências e arquivos compilados não são enviados ao Git.
+Os testes verificam a URL do checkout e o relógio persistente. O contador não encerra a promoção ao zerar; isso está informado na página. Os prints de Analytics não representam promessa de renda.

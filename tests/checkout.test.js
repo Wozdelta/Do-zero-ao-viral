@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { checkoutURL, publicConfig } from './checkout.js';
+import { checkoutURL, publicConfig } from '../lib/settings.js';
 test('only accepts official HTTPS offer URLs', () => {
   assert.equal(checkoutURL('https://pay.cakto.com.br/oferta-exemplo'), 'https://pay.cakto.com.br/oferta-exemplo');
   for (const url of ['', 'javascript:alert(1)', 'http://pay.cakto.com.br/x', 'https://pay.cakto.com.br.evil.com/x', 'https://user:pass@pay.cakto.com.br/x', 'https://pay.cakto.com.br/', 'https://pay.cakto.com.br:999/x']) assert.equal(checkoutURL(url), null);

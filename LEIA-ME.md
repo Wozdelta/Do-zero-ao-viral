@@ -1,45 +1,69 @@
-# Do Zero ao Viral — versão 8
+# Do Zero ao Viral
 
-Página de vendas React + Tailwind, backend Node + Express, sem banco de dados.
+Projeto único em React + Vite + Tailwind, pronto para importar na Vercel pela raiz. Não há duas aplicações ou pastas frontend/backend para configurar.
 
-## Pagamento
+## Subir na Vercel
 
-Por solicitação do produtor, todos os botões de compra levam diretamente ao checkout oficial da Cakto: https://pay.cakto.com.br/37y6pfg_1307697. Não há pagamento dentro do site, formulário intermediário, SDK ou uso de chaves de API.
+1. Importe o repositório `Wozdelta/Do-zero-ao-viral`.
+2. Em **Root Directory**, mantenha a raiz: `./`.
+3. O arquivo `vercel.json` já define:
+   - Instalação: `npm ci`
+   - Build: `npm run build`
+   - Pasta de saída: `dist`
+4. Faça o deploy. Não precisa configurar servidor separado nem credenciais da Cakto.
 
-Preço anunciado: de R$ 349,99 por R$ 99,99. O contador permanece salvo no navegador e não reinicia ao atualizar. O valor continua disponível após zerar, conforme a indicação na página.
+## Rodar no computador
 
-## Iniciar
+Node.js 22.12 ou superior. Abra o terminal nesta mesma pasta:
 
-Instale Node.js 22.12 ou superior. Na pasta principal do projeto:
-
-```text
+```sh
 npm ci
+npm run dev
+```
+
+Abra http://127.0.0.1:5173. Para conferir a versão compilada:
+
+```sh
 npm run build
 npm start
 ```
 
-Abra http://127.0.0.1:3001. Para editar, use `npm run dev` e http://127.0.0.1:5173. Encerre com Ctrl+C.
+Abra http://127.0.0.1:3001. Encerre com Ctrl+C.
 
-## Personalizar
-
-- `shared/offer.js`: link oficial usado nos botões.
-- `frontend/src/main.jsx`: textos, seções, preços e redes.
-- `frontend/src/redesign.css`: refinamento visual, galeria, promoção e botões.
-- `frontend/src/Countdown.jsx` e `clock.js`: relógio alinhado e persistência.
-- `frontend/src/HeroFilm.jsx`: destaque de mídia e anúncio.
-- `backend/.env.example`: dados opcionais de fornecedor e contato, sem chaves secretas.
-
-Para colocar o anúncio, salve o arquivo real em `frontend/public/media/anuncio.mp4`, compile e reinicie o servidor. Até lá, o destaque aparece como demonstração visual. Não foi entregue um vídeo real pelo produtor ainda.
-
-Os quatro prints aparecem inteiros, em duas colunas no computador e uma no celular. Preservam os números fornecidos, sem atribuição a alunos não comprovada e sem promessa de renda. A arte principal foi gerada do zero; seu prompt está em PROMPTS-IMAGENS.md.
-
-## Verificação e publicação
+## Onde fica cada coisa
 
 ```text
-npm test
-npm run build
+zero-ao-viral/
+  index.html
+  package.json
+  package-lock.json
+  vite.config.js
+  vercel.json
+  src/              página, componentes e estilos
+  public/           imagens e anúncio
+  api/config.js     configuração pública na Vercel
+  lib/settings.js   configuração compartilhada
+  tests/            verificações
 ```
 
-O Express serve `frontend/dist` e as rotas de configuração no mesmo domínio. Para publicar, use hospedagem Node com HTTPS e ajuste o host de escuta se a plataforma exigir. Não publique backend, referências privadas ou `.env` como arquivos estáticos.
+Tudo é instalado, executado e publicado a partir desta pasta. As subpastas apenas organizam o conteúdo do mesmo projeto.
 
-O ZIP exclui dependências instaladas e arquivos privados. Confira CONFIGURAR-PAGAMENTO.md e VERIFICACAO.md. As seções históricas do prompt e do relatório de verificação foram preservadas; a revisão 8 prevalece quando houver instrução anterior sobre checkout próprio.
+## Pagamento
+
+Os botões levam diretamente ao checkout https://pay.cakto.com.br/37y6pfg_1307697. O site não coleta cartão, CPF ou dados de pagamento e não precisa de chave de API. Altere o link em `src/offer.js` se mudar a oferta.
+
+Confira na Cakto os métodos de pagamento, a entrega e as taxas. Na revisão do checkout, a plataforma acrescentou R$ 0,99 ao produto de R$ 99,99, mostrando total de R$ 100,98.
+
+## Colocar o anúncio
+
+Salve o vídeo real em `public/media/anuncio.mp4`. Localmente ele é detectado automaticamente. Na Vercel, defina `AD_VIDEO_ENABLED=true` e faça um novo deploy. Até receber o vídeo, a página mostra uma demonstração visual identificada.
+
+## Configurações opcionais
+
+Na Vercel, pode preencher `SELLER_NAME`, `SELLER_DOCUMENT`, `SUPPORT_EMAIL` e `REFERENCE_PRICE_CONFIRMED`. Nenhuma credencial privada é necessária. Dados locais privados, referências do produto, capturas e dependências são excluídos do Git.
+
+```sh
+npm test
+```
+
+Os testes verificam a URL do checkout e o relógio persistente. O contador não encerra a promoção ao zerar; isso está informado na página. Os prints de Analytics não representam promessa de renda.

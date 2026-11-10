@@ -6,7 +6,7 @@ import { visitDeadline, clockLabel } from './clock.js';
 import HeroFilm from './HeroFilm.jsx';
 import './redesign.css';
 import Countdown from './Countdown.jsx';
-import { CHECKOUT_URL } from '../../shared/offer.js';
+import { CHECKOUT_URL } from './offer.js';
 
 const money = n => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
 const modules = [
