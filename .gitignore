@@ -1,0 +1,13 @@
+node_modules/
+frontend/dist/
+.vercel/
+.env
+.env.*
+!.env.example
+*.log
+/referencias/
+/*.jpg
+/*.png
+/PROMPT-MESTRE.md
+/PROMPTS-IMAGENS.md
+/VERIFICACAO.md

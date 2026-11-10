@@ -1,0 +1,16 @@
+VIDEO DO TOPO
+
+Quando o anuncio estiver pronto, coloque nesta pasta o arquivo chamado:
+anuncio.mp4
+
+Recomendado: MP4 H.264 + AAC, 1920x1080, proporcao 16:9.
+Video vertical tambem e aceito: o player preserva a imagem inteira.
+Otimize o tamanho antes de publicar.
+
+Depois execute npm run build e reinicie o backend.
+O site detecta o arquivo e substitui a composicao ilustrativa pelo video real.
+O video inicia sem som quando o navegador permite autoplay.
+O visitante pode ativar o som, pausar e usar os controles nativos.
+Com preferencia por movimento reduzido, o video aguarda interacao.
+
+Nenhum anuncio real foi recebido ainda nesta revisao.
