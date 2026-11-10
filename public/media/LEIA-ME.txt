@@ -1,16 +1,11 @@
-VIDEO DO TOPO
+ANUNCIO INCLUIDO
 
-Quando o anuncio estiver pronto, coloque nesta pasta o arquivo chamado:
-anuncio.mp4
+anuncio.mp4: anuncio real enviado pelo produtor, otimizado para a web.
+anuncio-poster.jpg: capa extraida do proprio video.
 
-Recomendado: MP4 H.264 + AAC, 1920x1080, proporcao 16:9.
-Video vertical tambem e aceito: o player preserva a imagem inteira.
-Otimize o tamanho antes de publicar.
+O site exibe o anuncio por padrao no inicio, tanto localmente quanto na Vercel.
+Ele inicia mudo quando o navegador permite autoplay e possui controles de som,
+pausa e reproducao. A preferencia de movimento reduzido e respeitada.
 
-Depois execute npm run build e reinicie o backend.
-O site detecta o arquivo e substitui a composicao ilustrativa pelo video real.
-O video inicia sem som quando o navegador permite autoplay.
-O visitante pode ativar o som, pausar e usar os controles nativos.
-Com preferencia por movimento reduzido, o video aguarda interacao.
-
-Nenhum anuncio real foi recebido ainda nesta revisao.
+Para substituir: troque anuncio.mp4, atualize a capa e faca um novo deploy.
+Na Vercel, AD_VIDEO_ENABLED=false oculta o anuncio.

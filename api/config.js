@@ -8,6 +8,6 @@ export default function handler(request, response) {
   response.setHeader('Cache-Control','no-store');
   return response.status(200).json({
     ...publicConfig(),
-    adVideoUrl:process.env.AD_VIDEO_ENABLED==='true'?'/media/anuncio.mp4':''
+    adVideoUrl:process.env.AD_VIDEO_ENABLED!=='false'?'/media/anuncio.mp4':''
   });
 }

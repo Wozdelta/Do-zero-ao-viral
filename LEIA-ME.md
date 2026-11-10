@@ -56,7 +56,7 @@ Confira na Cakto os métodos de pagamento, a entrega e as taxas. Na revisão do 
 
 ## Colocar o anúncio
 
-Salve o vídeo real em `public/media/anuncio.mp4`. Localmente ele é detectado automaticamente. Na Vercel, defina `AD_VIDEO_ENABLED=true` e faça um novo deploy. Até receber o vídeo, a página mostra uma demonstração visual identificada.
+O anúncio enviado pelo produtor já está incluído em `public/media/anuncio.mp4`, com capa em `public/media/anuncio-poster.jpg`. Ele aparece no início da página, em 16:9, com controles e botão para ativar o som. Começa mudo quando o navegador permite reprodução automática; a preferência de movimento reduzido é respeitada. O progresso acompanha o vídeo real. Na Vercel, ele fica habilitado por padrão, sem variável adicional. Para ocultar, defina `AD_VIDEO_ENABLED=false`. Para substituir, troque o arquivo e faça um novo deploy.
 
 ## Configurações opcionais
 
