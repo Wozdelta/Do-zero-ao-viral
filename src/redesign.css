@@ -90,27 +90,6 @@ body{background:#08090d}h2{font-weight:700}p{color:#aaa6bc}.wrap{width:min(1280p
 .countdown-display .countdown-part,.countdown-display .countdown-digits,.countdown-display .countdown-colon{font:inherit;color:inherit;line-height:inherit;letter-spacing:0}
 
 .film-frame.has-video{aspect-ratio:16/9}
-.film-play-with-sound {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 44px;
-  padding: 10px 16px;
-  border: 1px solid #e9ffb6;
-  border-radius: 999px;
-  background: var(--lime);
-  color: #151b0d;
-  box-shadow: 0 4px 24px #0009;
-  font-size: 13px;
-  font-weight: 750;
-  white-space: nowrap;
-}
-.film-play-with-sound:hover { background: #e6ff9f; }
 .film-toolbar .film-sound{width:auto;gap:7px;display:inline-flex;padding-inline:7px}
 .film-sound>span{font-size:7px;letter-spacing:.5px;white-space:nowrap}
 @media(max-width:370px){.film-sound>span{font-size:6px;letter-spacing:0}.film-toolbar .film-sound{gap:4px;padding-inline:2px}}
